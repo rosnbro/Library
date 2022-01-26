@@ -9,18 +9,7 @@ const authorInput = document.querySelector("#author");
 const pagesInput = document.querySelector("#pages");
 const readInput = document.querySelector("#read");
 
-const book = {
-    title: "test",
-    author: "ben",
-    pages: "350",
-    read: "read",
-    index: 1,
-};
-
-let library = [book];
-
-let bookCard;
-let cardTitle;
+let library = [];
 
 // Event listeners
 
@@ -29,8 +18,6 @@ promptButton.addEventListener("click", () => displayPrompt());
 addBookButton.addEventListener("click", () => addBookToLibrary());
 
 // Functions
-
-displayLibrary();
 
 function Book(title, author, pages, read) {
     this.title = title;
@@ -48,32 +35,50 @@ function addBookToLibrary() {
 }
 
 function removeFromLibrary(i) {
+    let newLibrary = [];
     for (let book of library) {
-        if (book.index == i) {
-            library.splice(book, 1);
-        } else if (book.index > i) {
-            book.index -= 1;
+        if (book.index != i) {
+            if (book.index > i) book.index = book.index - 1;
+            newLibrary.push(book);
         }
     }
+    library = newLibrary;
     displayLibrary();
 }
 
 function displayLibrary() {
     clearLibrary();
     for (let book of library) {
-        bookCard = document.createElement("div");
+        // Creates book card
+        let bookCard = document.createElement("div");
         bookCard.classList.add("bookCard");
         bookContainer.appendChild(bookCard);
-        // create delete button with class .deleteButton and id #${book.index} => set listener above to run removeFromLibrary while passing the id number
+
+        // Creates delete button
+        let deleteButton = document.createElement("button");
+        deleteButton.classList.add("deleteButton");
+        deleteButton.addEventListener("click", () => removeFromLibrary(book.index));
+        bookCard.appendChild(deleteButton);
+
+        // Adds content to card
         for (let prop in book) {
-            cardTitle = document.createElement("div");
-            cardTitle.classList.add("cardTitle");
-            cardTitle.innerHTML = `${book[prop]}`;
-            bookCard.appendChild(cardTitle);
-            //if (prop != "index") {
-                
-                // add property to book card
-            //}
+            let cardProp = document.createElement("div");
+            switch (prop) {
+                case "title":
+                    cardProp.classList.add("cardTitle");
+                    break;
+                case "author":
+                    cardProp.classList.add("cardAuthor");
+                    break;
+                case "pages":
+                    cardProp.classList.add("cardPages");
+                    break;
+                case "read":
+                    cardProp.classList.add("cardRead");
+                    break;
+            }
+            cardProp.innerHTML = `${book[prop]}`;
+            bookCard.appendChild(cardProp);
         }
     }
 }
