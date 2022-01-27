@@ -19,7 +19,7 @@ promptButton.addEventListener("click", () => displayPrompt());
 clearButton.addEventListener("click", () => clearAll());
 addBookButton.addEventListener("click", () => addBookToLibrary());
 
-// Test conditions
+// Default Books
 
 let test1 = {
     title: "The Lord of the Rings",
@@ -171,6 +171,4 @@ function clearAll() {
     library = [];
 }
 
-
 // Add star slider for rating books you've read?
-// Add text area for review?
