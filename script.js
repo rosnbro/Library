@@ -23,21 +23,21 @@ addBookButton.addEventListener("click", () => addBookToLibrary());
 let test1 = {
     title: "The Lord of the Rings",
     author: "J.R.R. Tolkien",
-    pages: 69,
+    pages: 1214,
     read: "read",
     index: 0,
 }
 let test2 = {
     title: "The Fire Next Time",
     author: "James Baldwin",
-    pages: 69,
+    pages: 167,
     read: "read",
     index: 1,
 }
 let test3 = {
     title: "Dune",
     author: "Frank Herbert",
-    pages: 69,
+    pages: 604,
     read: "unread",
     index: 2,
 }
@@ -154,6 +154,7 @@ function displayPrompt() {
     authorInput.value = "";
     pagesInput.value = "";
     promptContainer.classList.toggle("hidden");
+    promptContainer.classList.toggle("visible");
 }
 
 function clearLibrary() {

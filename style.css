@@ -1,14 +1,72 @@
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+    background-color: #5CDB95;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 120px;
+    background-color: #379683;
+}
+
+.title {
+    font-size: 3rem;
+    color: #EDF5E1;
+}
+
+#promptButton {
+    font-size: 1rem;
+    height: 40px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #05386B;
+    color: #EDF5E1;
 }
 
 .hidden {
     display: none;
 }
 
+.visible {
+    display: flex;
+}
+
+.addBookPrompt {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 120px;
+    background-color: #379683;
+    color: #EDF5E1;
+}
+
+.inputItem {
+    padding: 0 10px;
+}
+
+#addBookButton {
+    font-size: 1rem;
+    height: 40px;
+    width: 60px;
+    margin: 0;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #05386B;
+    color: #EDF5E1;
+}
+
 .bookContainer {
     display: flex;
     flex-wrap: wrap;
+    height: 100%;
+    margin: 0;
+    padding: 0 100px;
 }
 
 .bookCard {
@@ -16,18 +74,20 @@ body {
     flex-direction: column;
     justify-content: space-between;
     width: 300px;
-    height: 300px;
+    min-height: 300px;
     margin: 20px;
     padding: 20px;
     border-radius: 16px;
-}
-
-.read {
-    background-color: aquamarine;
+    border-style: solid;
+    border-color: #05386B;
 }
 
 .unread {
-    background-color: grey;
+    background-color: #8EE4AF;
+}
+
+.read {
+    background-color: #05386B;
 }
 
 .cardText {
@@ -38,6 +98,7 @@ body {
 
 .cardProp {
     margin: 0 0 10px;
+    color: #EDF5E1;
 }
 
 .cardTitle {
@@ -50,10 +111,6 @@ body {
     font-style: italic;
 }
 
-.cardPages {
-
-}
-
 .buttonContainer {
     display: flex;
     justify-content: space-between;
@@ -63,14 +120,18 @@ body {
     width: 40px;
     height: 40px;
     border-radius: 8px;
+    border-style: none;
+    background-color: #EDF5E1;
 }
 
-.readButton {
-    
+.readButton:hover {
+    background-color: #05386B;
+    border-style: solid;
+    border-color: #EDF5E1;
 }
 
-.deleteButton {
-    
+.deleteButton:hover {
+    background-color: #bf3952;
+    border-style: solid;
+    border-color: #EDF5E1;
 }
-
-
