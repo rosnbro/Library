@@ -1,5 +1,6 @@
 // Constants and variables
 
+const promptContainer = document.querySelector(".addBookPrompt")
 const promptButton = document.querySelector("#promptButton");
 const addBookButton = document.querySelector("#addBookButton");
 const deleteButton = document.querySelectorAll(".deleteButton");
@@ -17,6 +18,34 @@ promptButton.addEventListener("click", () => displayPrompt());
 
 addBookButton.addEventListener("click", () => addBookToLibrary());
 
+// Test conditions
+
+let test1 = {
+    title: "The Lord of the Rings",
+    author: "J.R.R. Tolkien",
+    pages: 69,
+    read: "read",
+    index: 0,
+}
+let test2 = {
+    title: "The Fire Next Time",
+    author: "James Baldwin",
+    pages: 69,
+    read: "read",
+    index: 1,
+}
+let test3 = {
+    title: "Dune",
+    author: "Frank Herbert",
+    pages: 69,
+    read: "unread",
+    index: 2,
+}
+library.push(test1);
+library.push(test2);
+library.push(test3);
+displayLibrary();
+
 // Functions
 
 function Book(title, author, pages, read) {
@@ -30,7 +59,7 @@ function Book(title, author, pages, read) {
 function addBookToLibrary() {
     let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
     library.push(newBook);
-    hidePrompt();
+    displayPrompt();
     displayLibrary();
 }
 
@@ -46,51 +75,85 @@ function removeFromLibrary(i) {
     displayLibrary();
 }
 
+function toggleRead(i) {
+    for (let book of library) {
+        if (book.index === i) {
+            if (book.read == "read") {
+                book.read = "unread";
+            } else {
+                book.read = "read"
+            }
+        }
+    }
+    displayLibrary();
+}
+
 function displayLibrary() {
     clearLibrary();
     for (let book of library) {
-        // Creates book card
         let bookCard = document.createElement("div");
+        let cardText = document.createElement("div");
+        let buttonContainer = document.createElement("div");
+        let readButton = document.createElement("button");
+        let deleteButton = document.createElement("button");
+
         bookCard.classList.add("bookCard");
+        buttonContainer.classList.add("buttonContainer");
+        readButton.classList.add("readButton");
+        deleteButton.classList.add("deleteButton");
+
+        readButton.innerHTML = `&#128065`;
+        deleteButton.innerHTML = `&#x2715`;
+
+        readButton.addEventListener("click", () => toggleRead(book.index));
+        deleteButton.addEventListener("click", () => removeFromLibrary(book.index));
+
         bookContainer.appendChild(bookCard);
 
-        // Creates delete button
-        let deleteButton = document.createElement("button");
-        deleteButton.classList.add("deleteButton");
-        deleteButton.addEventListener("click", () => removeFromLibrary(book.index));
-        bookCard.appendChild(deleteButton);
-
-        // Adds content to card
+        cardText.classList.add("cardText");
         for (let prop in book) {
             let cardProp = document.createElement("div");
+            cardProp.classList.add("cardProp");
+
             switch (prop) {
                 case "title":
                     cardProp.classList.add("cardTitle");
+                    cardProp.innerHTML = `${book[prop]}`;
                     break;
                 case "author":
                     cardProp.classList.add("cardAuthor");
+                    cardProp.innerHTML = `by ${book[prop]}`;
                     break;
                 case "pages":
                     cardProp.classList.add("cardPages");
+                    cardProp.innerHTML = `${book[prop]} pages`;
                     break;
                 case "read":
-                    cardProp.classList.add("cardRead");
+                    switch (book.read) {
+                        case "read":
+                            bookCard.classList.add("read");
+                            break;
+                        case "unread":
+                            bookCard.classList.add("unread");
+                            break;
+                    }
                     break;
             }
-            cardProp.innerHTML = `${book[prop]}`;
-            bookCard.appendChild(cardProp);
+            cardText.appendChild(cardProp);
         }
+
+        bookCard.appendChild(cardText);
+        bookCard.appendChild(buttonContainer);
+        buttonContainer.appendChild(readButton);
+        buttonContainer.appendChild(deleteButton);
     }
 }
 
 function displayPrompt() {
-    // display prompt as pop up or drop down menu
-}
-
-function hidePrompt() {
-    // clear input values
-    // hide prompt. 
-    // maybe merge with displayPrompt and set to toggle?
+    titleInput.value = "";
+    authorInput.value = "";
+    pagesInput.value = "";
+    promptContainer.classList.toggle("hidden");
 }
 
 function clearLibrary() {
@@ -100,3 +163,7 @@ function clearLibrary() {
         children = bookContainer.firstElementChild;
     }
 }
+
+
+// Add star slider for rating books you've read?
+// Add text area for review?
