@@ -20,13 +20,46 @@ body {
     color: #EDF5E1;
 }
 
+.headerButtons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
 #promptButton {
     font-size: 1rem;
     height: 40px;
+    width: 90px;
+    margin: 10px 0 10px 10px;
     border-radius: 8px;
     border-style: none;
+    background-color: #EDF5E1;
+    color: #05386B;
+}
+
+#promptButton:hover {
     background-color: #05386B;
     color: #EDF5E1;
+    border-style: solid;
+    border-color: #EDF5E1;
+}
+
+#clearButton {
+    font-size: 1rem;
+    height: 40px;
+    width: 90px;
+    margin: 10px 0 10px 10px;
+    border-radius: 8px;
+    border-style: none;
+    background-color: #EDF5E1;
+    color: #05386B;
+}
+
+#clearButton:hover {
+    background-color: #bf3952;
+    color: #EDF5E1;
+    border-style: solid;
+    border-color: #EDF5E1;
 }
 
 .hidden {
@@ -57,6 +90,11 @@ body {
     margin: 0;
     border-radius: 8px;
     border-style: none;
+    background-color: #EDF5E1;
+    color: #05386B;
+}
+
+#addBookButton:hover {
     background-color: #05386B;
     color: #EDF5E1;
 }

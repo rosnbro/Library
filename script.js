@@ -2,6 +2,7 @@
 
 const promptContainer = document.querySelector(".addBookPrompt")
 const promptButton = document.querySelector("#promptButton");
+const clearButton = document.querySelector("#clearButton");
 const addBookButton = document.querySelector("#addBookButton");
 const deleteButton = document.querySelectorAll(".deleteButton");
 const bookContainer = document.querySelector(".bookContainer");
@@ -15,7 +16,7 @@ let library = [];
 // Event listeners
 
 promptButton.addEventListener("click", () => displayPrompt());
-
+clearButton.addEventListener("click", () => clearAll());
 addBookButton.addEventListener("click", () => addBookToLibrary());
 
 // Test conditions
@@ -163,6 +164,11 @@ function clearLibrary() {
         children.remove();
         children = bookContainer.firstElementChild;
     }
+}
+
+function clearAll() {
+    clearLibrary()
+    library = [];
 }
 
 
