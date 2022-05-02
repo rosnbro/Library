@@ -47,15 +47,19 @@ library.push(test2);
 library.push(test3);
 displayLibrary();
 
-// Functions
+// Book constructor
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.index = library.length;
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.index = library.length;
+    }
 }
+
+// Functions
 
 function addBookToLibrary() {
     let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);

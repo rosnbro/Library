@@ -1,10 +1,19 @@
+:root {
+    --header-bg-color: #379683;
+    --body-bg-color: #EDF5E1;
+    --unread-bg-color: #5CDB95;
+    --text-color: #EDF5E1;
+    --reg-button-bg-color: #05386B;
+    --del-button-bg-color: #bf3952;
+}
+/* #8EE4AF */
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     flex-direction: column;
     height: 100%;
     margin: 0;
-    background-color: #5CDB95;
+    background-color: var(--body-bg-color);
 }
 
 .header {
@@ -12,12 +21,12 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 20px 120px;
-    background-color: #379683;
+    background-color: var(--header-bg-color);
 }
 
 .title {
     font-size: 3rem;
-    color: #EDF5E1;
+    color: var(--text-color);
 }
 
 .headerButtons {
@@ -33,15 +42,15 @@ body {
     margin: 10px 0 10px 10px;
     border-radius: 8px;
     border-style: none;
-    background-color: #EDF5E1;
-    color: #05386B;
+    background-color: var(--text-color);
+    color: var(--reg-button-bg-color);
 }
 
 #promptButton:hover {
-    background-color: #05386B;
-    color: #EDF5E1;
+    background-color: var(--reg-button-bg-color);
+    color: var(--text-color);
     border-style: solid;
-    border-color: #EDF5E1;
+    border-color: var(--text-color);
 }
 
 #clearButton {
@@ -51,15 +60,15 @@ body {
     margin: 10px 0 10px 10px;
     border-radius: 8px;
     border-style: none;
-    background-color: #EDF5E1;
-    color: #05386B;
+    background-color: var(--text-color);
+    color: var(--reg-button-bg-color);
 }
 
 #clearButton:hover {
-    background-color: #bf3952;
-    color: #EDF5E1;
+    background-color: var(--del-button-bg-color);
+    color: var(--text-color);
     border-style: solid;
-    border-color: #EDF5E1;
+    border-color: var(--text-color);
 }
 
 .hidden {
@@ -71,16 +80,17 @@ body {
 }
 
 .addBookPrompt {
+    flex-direction: column;
     flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-end;
+    align-items: flex-end;
+    justify-content: center;
     padding: 10px 120px;
-    background-color: #379683;
-    color: #EDF5E1;
+    background-color: var(--header-bg-color);
+    color: var(--text-color);
 }
 
 .inputItem {
-    padding: 0 10px;
+    padding: 5px 10px;
 }
 
 #addBookButton {
@@ -90,13 +100,13 @@ body {
     margin: 0;
     border-radius: 8px;
     border-style: none;
-    background-color: #EDF5E1;
-    color: #05386B;
+    background-color: var(--text-color);
+    color: var(--reg-button-bg-color);
 }
 
 #addBookButton:hover {
-    background-color: #05386B;
-    color: #EDF5E1;
+    background-color: var(--reg-button-bg-color);
+    color: var(--text-color);
 }
 
 .bookContainer {
@@ -116,16 +126,16 @@ body {
     margin: 20px;
     padding: 20px;
     border-radius: 16px;
-    border-style: solid;
-    border-color: #05386B;
+    /*border-style: solid;
+    border-color: var(--reg-button-bg-color);*/
 }
 
 .unread {
-    background-color: #8EE4AF;
+    background-color: var(--unread-bg-color);
 }
 
 .read {
-    background-color: #05386B;
+    background-color: var(--reg-button-bg-color);
 }
 
 .cardText {
@@ -136,7 +146,7 @@ body {
 
 .cardProp {
     margin: 0 0 10px;
-    color: #EDF5E1;
+    color: var(--text-color);
 }
 
 .cardTitle {
@@ -159,17 +169,17 @@ body {
     height: 40px;
     border-radius: 8px;
     border-style: none;
-    background-color: #EDF5E1;
+    background-color: var(--text-color);
 }
 
 .readButton:hover {
-    background-color: #05386B;
+    background-color: var(--reg-button-bg-color);
     border-style: solid;
-    border-color: #EDF5E1;
+    border-color: var(--text-color);
 }
 
 .deleteButton:hover {
-    background-color: #bf3952;
+    background-color: var(--del-button-bg-color);
     border-style: solid;
-    border-color: #EDF5E1;
+    border-color: var(--text-color);
 }
