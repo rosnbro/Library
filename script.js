@@ -6,10 +6,10 @@ const clearButton = document.querySelector("#clearButton");
 const addBookButton = document.querySelector("#addBookButton");
 const deleteButton = document.querySelectorAll(".deleteButton");
 const bookContainer = document.querySelector(".bookContainer");
-const titleInput = document.querySelector("#title");
-const authorInput = document.querySelector("#author");
-const pagesInput = document.querySelector("#pages");
-const readInput = document.querySelector("#read");
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const pagesInput = document.getElementById("pages");
+const readInput = document.getElementById("read");
 
 let library = [];
 
@@ -62,10 +62,14 @@ class Book {
 // Functions
 
 function addBookToLibrary() {
-    let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
-    library.push(newBook);
-    displayPrompt();
-    displayLibrary();
+    if (titleInput.validity.valid) {
+        let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
+        library.push(newBook);
+        displayPrompt();
+        displayLibrary();
+    } else {
+        alert('uh oh');
+    }
 }
 
 function removeFromLibrary(i) {
