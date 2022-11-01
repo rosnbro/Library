@@ -1,12 +1,13 @@
 :root {
-    --header-bg-color: #379683;
+    --header-bg-color:#C17767;
     --body-bg-color: #EDF5E1;
-    --unread-bg-color: #5CDB95;
+    --unread-bg-color: #6D98BA;
     --text-color: #EDF5E1;
+    --text-color-button: black;
     --reg-button-bg-color: #05386B;
     --del-button-bg-color: #bf3952;
 }
-/* #8EE4AF */
+/* #379683 #5CDB95 #8EE4AF */
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
@@ -42,17 +43,17 @@ body {
     margin: 10px 0 10px 10px;
     border-radius: 8px;
     border-style: none;
-    background-color: var(--text-color);
-    color: var(--reg-button-bg-color);
+    background-color: var(--body-bg-color);
+    color: var(--text-color-button);
 }
-
+/*
 #promptButton:hover {
     background-color: var(--reg-button-bg-color);
     color: var(--text-color);
     border-style: solid;
     border-color: var(--text-color);
 }
-
+*/
 #clearButton {
     font-size: 1rem;
     height: 40px;
@@ -60,17 +61,17 @@ body {
     margin: 10px 0 10px 10px;
     border-radius: 8px;
     border-style: none;
-    background-color: var(--text-color);
-    color: var(--reg-button-bg-color);
+    background-color: var(--body-bg-color);
+    color: var(--text-color-button);
 }
-
+/*
 #clearButton:hover {
     background-color: var(--del-button-bg-color);
     color: var(--text-color);
     border-style: solid;
     border-color: var(--text-color);
 }
-
+*/
 .hidden {
     display: none;
 }
@@ -90,8 +91,12 @@ body {
 }
 
 form p {
-    padding: 5px 10px;
+    padding: 8px 0;
     margin: 0;
+}
+
+label {
+    color: white;
 }
 
 #addBookButton {
@@ -101,15 +106,15 @@ form p {
     margin: 0;
     border-radius: 8px;
     border-style: none;
-    background-color: var(--text-color);
-    color: var(--reg-button-bg-color);
+    background-color: var(--body-bg-color);
+    color: var(--text-color-button);
 }
-
+/*
 #addBookButton:hover {
     background-color: var(--reg-button-bg-color);
     color: var(--text-color);
 }
-
+*/
 .bookContainer {
     display: flex;
     flex-wrap: wrap;

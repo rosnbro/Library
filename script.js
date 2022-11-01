@@ -62,7 +62,7 @@ class Book {
 // Functions
 
 function addBookToLibrary() {
-    if (titleInput.validity.valid) {
+    if (titleInput.validity.valid && authorInput.validity.valid && pagesInput.validity.valid) {
         let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
         library.push(newBook);
         displayPrompt();
@@ -112,7 +112,7 @@ function displayLibrary() {
         deleteButton.classList.add("deleteButton");
 
         readButton.innerHTML = `&#128065`;
-        deleteButton.innerHTML = `&#x2715`;
+        deleteButton.innerHTML = `&#128683`; //`&#x2715`;
 
         readButton.addEventListener("click", () => toggleRead(book.index));
         deleteButton.addEventListener("click", () => removeFromLibrary(book.index));
