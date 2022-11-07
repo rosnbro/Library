@@ -1,10 +1,7 @@
 // Constants and variables
 
-const promptContainer = document.querySelector(".addBookPrompt")
-const promptButton = document.querySelector("#promptButton");
 const clearButton = document.querySelector("#clearButton");
 const addBookButton = document.querySelector("#addBookButton");
-const deleteButton = document.querySelectorAll(".deleteButton");
 const bookContainer = document.querySelector(".bookContainer");
 const titleInput = document.getElementById("title");
 const authorInput = document.getElementById("author");
@@ -15,7 +12,6 @@ let library = [];
 
 // Event listeners
 
-promptButton.addEventListener("click", () => displayPrompt());
 clearButton.addEventListener("click", () => clearAll());
 addBookButton.addEventListener("click", () => addBookToLibrary());
 
@@ -63,12 +59,23 @@ class Book {
 
 function addBookToLibrary() {
     if (titleInput.validity.valid && authorInput.validity.valid && pagesInput.validity.valid) {
-        let newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.value);
+        let newBook = new Book(
+            titleInput.value, 
+            authorInput.value, 
+            pagesInput.value, 
+            readInput.value
+        );
         library.push(newBook);
-        displayPrompt();
+
+        titleInput.value = "";
+        authorInput.value = "";
+        pagesInput.value = "";
+        
+        clearLibrary();
         displayLibrary();
     } else {
         alert('uh oh');
+        console.log(titleInput, authorInput, pagesInput);
     }
 }
 
@@ -81,6 +88,8 @@ function removeFromLibrary(i) {
         }
     }
     library = newLibrary;
+    
+    clearLibrary();
     displayLibrary();
 }
 
@@ -94,11 +103,11 @@ function toggleRead(i) {
             }
         }
     }
+    clearLibrary();
     displayLibrary();
 }
 
 function displayLibrary() {
-    clearLibrary();
     for (let book of library) {
         let bookCard = document.createElement("div");
         let cardText = document.createElement("div");
@@ -158,19 +167,9 @@ function displayLibrary() {
     }
 }
 
-function displayPrompt() {
-    titleInput.value = "";
-    authorInput.value = "";
-    pagesInput.value = "";
-    promptContainer.classList.toggle("hidden");
-    promptContainer.classList.toggle("visible");
-}
-
 function clearLibrary() {
-    let children = bookContainer.firstElementChild;
-    while (children) {
-        children.remove();
-        children = bookContainer.firstElementChild;
+    while (bookContainer.childNodes.length > 2) {
+        bookContainer.removeChild(bookContainer.lastChild);
     }
 }
 

@@ -2,12 +2,14 @@
     --header-bg-color:#C17767;
     --body-bg-color: #EDF5E1;
     --unread-bg-color: #6D98BA;
+    --read-bg-color: #05386B;
+    --form-bg-color: #379683;
     --text-color: #EDF5E1;
     --text-color-button: black;
     --reg-button-bg-color: #05386B;
     --del-button-bg-color: #bf3952;
 }
-/* #379683 #5CDB95 #8EE4AF */
+/*  #5CDB95 #8EE4AF */
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
@@ -30,71 +32,11 @@ body {
     color: var(--text-color);
 }
 
-.headerButtons {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-#promptButton {
-    font-size: 1rem;
-    height: 40px;
-    width: 90px;
-    margin: 10px 0 10px 10px;
-    border-radius: 8px;
-    background-color: var(--body-bg-color);
-    color: var(--text-color-button);
-}
-
 #clearButton {
     font-size: 1rem;
     height: 40px;
     width: 90px;
     margin: 10px 0 10px 10px;
-    border-radius: 8px;
-    background-color: var(--body-bg-color);
-    color: var(--text-color-button);
-}
-
-.hidden {
-    display: none;
-}
-
-.visible {
-    display: flex;
-}
-
-.addBookPrompt {
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: center;
-    padding: 10px 120px;
-    background-color: var(--header-bg-color);
-    color: var(--text-color);
-}
-
-form p {
-    padding: 8px 0;
-    margin: 0;
-}
-
-label {
-    padding: 8px 0;
-}
-
-label span {
-    padding: 8px;
-    border-radius: 8px;
-    color: var(--text-color-button);
-    background-color: var(--body-bg-color);
-}
-
-#addBookButton {
-    font-size: 1rem;
-    height: 40px;
-    width: 60px;
-    margin: 0;
     border-radius: 8px;
     background-color: var(--body-bg-color);
     color: var(--text-color-button);
@@ -117,8 +59,51 @@ label span {
     margin: 20px;
     padding: 20px;
     border-radius: 16px;
-    /*border-style: solid;
-    border-color: var(--reg-button-bg-color);*/
+}
+
+form {
+    background-color: var(--form-bg-color);
+    color: var(--text-color);
+}
+
+form p {
+    margin: 0;
+}
+
+.combine {
+    display: flex;
+    gap: 32px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+
+#title,
+#author {
+    font-size: 1.5rem;
+}
+
+#pages,
+select,
+option {
+    font-size: 1rem;
+}
+
+#addBookButton {
+    font-size: 1rem;
+    height: 40px;
+    width: 40px;
+    margin: 0;
+    border-radius: 8px;
+    background-color: var(--body-bg-color);
+    color: var(--text-color-button);
 }
 
 .unread {
@@ -126,7 +111,7 @@ label span {
 }
 
 .read {
-    background-color: var(--reg-button-bg-color);
+    background-color: var(--read-bg-color);
 }
 
 .cardText {
