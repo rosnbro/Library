@@ -42,36 +42,20 @@ body {
     width: 90px;
     margin: 10px 0 10px 10px;
     border-radius: 8px;
-    border-style: none;
     background-color: var(--body-bg-color);
     color: var(--text-color-button);
 }
-/*
-#promptButton:hover {
-    background-color: var(--reg-button-bg-color);
-    color: var(--text-color);
-    border-style: solid;
-    border-color: var(--text-color);
-}
-*/
+
 #clearButton {
     font-size: 1rem;
     height: 40px;
     width: 90px;
     margin: 10px 0 10px 10px;
     border-radius: 8px;
-    border-style: none;
     background-color: var(--body-bg-color);
     color: var(--text-color-button);
 }
-/*
-#clearButton:hover {
-    background-color: var(--del-button-bg-color);
-    color: var(--text-color);
-    border-style: solid;
-    border-color: var(--text-color);
-}
-*/
+
 .hidden {
     display: none;
 }
@@ -83,7 +67,7 @@ body {
 .addBookPrompt {
     flex-direction: column;
     flex-wrap: wrap;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
     padding: 10px 120px;
     background-color: var(--header-bg-color);
@@ -96,7 +80,14 @@ form p {
 }
 
 label {
-    color: white;
+    padding: 8px 0;
+}
+
+label span {
+    padding: 8px;
+    border-radius: 8px;
+    color: var(--text-color-button);
+    background-color: var(--body-bg-color);
 }
 
 #addBookButton {
@@ -105,16 +96,10 @@ label {
     width: 60px;
     margin: 0;
     border-radius: 8px;
-    border-style: none;
     background-color: var(--body-bg-color);
     color: var(--text-color-button);
 }
-/*
-#addBookButton:hover {
-    background-color: var(--reg-button-bg-color);
-    color: var(--text-color);
-}
-*/
+
 .bookContainer {
     display: flex;
     flex-wrap: wrap;
@@ -174,7 +159,6 @@ label {
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    border-style: none;
     background-color: var(--text-color);
 }
 

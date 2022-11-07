@@ -26,13 +26,13 @@
         <p>
             <label for="author">
                 <span aria-label="required">Author: *</span>
-                <input type="text" id="author" name="author" required>
+                <input type="text" id="author" name="author" required pattern="[A-Za-z]+">
             </label>
         </p>
         <p>
             <label for="pages">
                 <span aria-label="required">Pages: *</span>
-                <input type="number" id="pages" name="pages" min="1" step="1" required>
+                <input type="number" id="pages" name="pages" min="1" max="15000" step="1" required>
             </label>
         </p>
         <p>
