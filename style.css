@@ -84,7 +84,6 @@ label {
     color: var(--text-color);
 }
 
-
 #title,
 #author {
     font-size: 1.5rem;
@@ -94,16 +93,6 @@ label {
 select,
 option {
     font-size: 1rem;
-}
-
-#addBookButton {
-    font-size: 1rem;
-    height: 40px;
-    width: 40px;
-    margin: 0;
-    border-radius: 8px;
-    background-color: var(--body-bg-color);
-    color: var(--text-color-button);
 }
 
 .unread {
@@ -140,11 +129,16 @@ option {
     justify-content: space-between;
 }
 
-.readButton, .deleteButton {
+.readButton, 
+.deleteButton, 
+#addBookButton {
+    margin: 0;
     width: 40px;
     height: 40px;
     border-radius: 8px;
     background-color: var(--text-color);
+    color: var(--text-color-button);
+    font-size: 1rem;
 }
 
 .readButton:hover {
