@@ -15,31 +15,36 @@
     </div>
     <div class="bookContainer">
         <form class="bookCard" novalidate>
-            <p>
-                <label for="title">
-                    <span aria-label="required">Title: *</span>
-                    <input type="text" id="title" name="title" required>
-                </label>
-            </p>
-            <p>
-                <label for="author">
-                    <span aria-label="required">Author: *</span>
-                    <input type="text" id="author" name="author" required pattern="[A-Za-z]+">
-                </label>
-            </p>
-            <p class="combine">
-                <label for="pages">
-                    <span aria-label="required">Pages: *</span>
-                    <input type="number" id="pages" name="pages" min="1" max="15000" step="1" required>
-                </label>
-                <label for="read">
-                    <span>Read:</span>
-                    <select id="read" name="read">
-                        <option value="read">Read</option>
-                        <option value="unread">Unread</option>
-                    </select>
-                </label>
-            </p>
+            <section>
+                <p>
+                    <label for="title">
+                        <span aria-label="required">Title: *</span>
+                        <input type="text" id="title" name="title" required>
+                        <span class="error" aria-live="polite" style="visibility: hidden;">Please enter a book title.</span>
+                    </label>
+                </p>
+                <p>
+                    <label for="author">
+                        <span aria-label="required">Author: *</span>
+                        <input type="text" id="author" name="author" required>
+                        <span class="error" aria-live="polite" style="visibility: hidden;">Please enter the book's author.</span>
+                    </label>
+                </p>
+                <p class="combine">
+                    <label for="pages" id="pagesLabel">
+                        <span aria-label="required">Pages: *</span>
+                        <input type="number" id="pages" name="pages" min="2" max="15000" step="1" required>
+                        <span class="error" aria-live="polite" style="visibility: hidden;">Please enter the number of pages.</span>
+                    </label>
+                    <label for="read" id="readLabel">
+                        <span>Read:</span>
+                        <select id="read" name="read">
+                            <option value="read">Read</option>
+                            <option value="unread">Unread</option>
+                        </select>
+                    </label>
+                </p>
+            </section>
             <p>
                 <button type="button" id="addBookButton">+</button>
             </p>

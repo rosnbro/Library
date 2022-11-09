@@ -4,8 +4,11 @@ const clearButton = document.querySelector("#clearButton");
 const addBookButton = document.querySelector("#addBookButton");
 const bookContainer = document.querySelector(".bookContainer");
 const titleInput = document.getElementById("title");
+const titleError = document.querySelector("#title + span.error");
 const authorInput = document.getElementById("author");
+const authorError = document.querySelector("#author + span.error");
 const pagesInput = document.getElementById("pages");
+const pagesError = document.querySelector("#pages + span.error");
 const readInput = document.getElementById("read");
 
 let library = [];
@@ -68,14 +71,34 @@ function addBookToLibrary() {
         library.push(newBook);
 
         titleInput.value = "";
+        titleError.style.visibility = "hidden";
         authorInput.value = "";
+        authorError.style.visibility = "hidden";
         pagesInput.value = "";
+        pagesError.style.visibility = "hidden";
         
         clearLibrary();
         displayLibrary();
     } else {
-        alert('uh oh');
-        console.log(titleInput, authorInput, pagesInput);
+        if (!titleInput.validity.valid) {
+            titleError.style.visibility = "visible";
+        } else titleError.style.visibility = "hidden";
+        
+        if (!authorInput.validity.valid) {
+            authorError.style.visibility = "visible";
+        } else authorError.style.visibility = "hidden";
+
+        if (!pagesInput.validity.valid) {
+            pagesError.textContent = "";
+            if (pagesInput.validity.badInput || pagesInput.validity.stepMismatch) {
+                pagesError.textContent = "Please enter the number of pages in whole digits.";
+            } else if (pagesInput.validity.rangeOverflow) {
+                pagesError.textContent = "Bit long innit?";
+            } else if (pagesInput.validity.rangeUnderflow) {
+                pagesError.textContent = "That's barely an essay, certainly not a book";
+            } else pagesError.textContent = "Please enter the number of pages.";
+            pagesError.style.visibility = "visible";
+        } else pagesError.style.visibility = "hidden";
     }
 }
 
